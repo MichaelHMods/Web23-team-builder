@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import TeamForm from './Components/TeamForm';
+import TeamCard from './Components/TeamCard';
 
 
 const AppTest = () => {
-    const [members, setMembers] = useState({
+    const [members, setMembers] = useState([{
         name: "",
         email: "",
         role: "", 
-    });
+    }]);
 
     const addNewMember = member =>{
         const newMember = {

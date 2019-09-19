@@ -8,14 +8,14 @@ const TeamForm = props => {
         role: "", 
     });
     const handleChanges = e => {
-        setMember({...member, [e.target.name]: e.target.value });
+        setMember({...member, [e.target.id]: e.target.value });
         console.log(member);
     };
 
     const submitForm = e => {
         e.preventDefault();
         //creates note 
-        props.addNewNote(member)
+        props.addNewMember(member)
         //resets inputs from fields
         setMember({ name: "", email: "", role: ""});
 
