@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const TeamForm = () => {
+const TeamForm = props => {
     const [member, setMember] = useState({
         name: "",
         email: "",
@@ -14,13 +14,39 @@ const TeamForm = () => {
 
     const submitForm = e => {
         e.preventDefault();
-        PaymentResponse.a
-    }
+        //creates note 
+        props.addNewNote(member)
+        //resets inputs from fields
+        setMember({ name: "", email: "", role: ""});
+
+    };
 
     return (
-        <div>
-            <h1>Team Builder</h1>
-        </div>
+        <form onSubmit={submitForm}>
+            <label htmlFor='name'>Name</label>
+            <input
+                id='name'
+                type='text'
+                onChange={handleChanges}
+                value={member.name}
+            />
+            <label htmlFor='email'>E-mail</label>
+            <input
+                id='email'
+                type='email'
+                onChange={handleChanges}
+                value={member.email}
+            />
+            <label htmlFor='role'>Role</label>
+            <input
+                id='role'
+                type='text'
+                onChange={handleChanges}
+                value={member.role}
+            />
+            <button type='submit'>Add Member</button>
+        </form>
+     
     )
 }
 export default TeamForm;
